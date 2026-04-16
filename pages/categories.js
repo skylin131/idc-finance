@@ -1,5 +1,5 @@
-import { db } from '/db.js';
-import { showToast } from '/app.js';
+import { db } from '../db.js';
+import { showToast } from '../app.js';
 
 let activeType = 'income';
 let items = [];

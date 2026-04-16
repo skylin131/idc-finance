@@ -1,5 +1,5 @@
-import { db } from '/db.js';
-import { showToast, navigate, getState } from '/app.js';
+import { db } from '../db.js';
+import { showToast, navigate, getState } from '../app.js';
 
 export async function renderForm(container, editRecord) {
   const isEdit = !!editRecord;

@@ -1,9 +1,9 @@
 const CACHE = 'idc-v2';
 const STATIC = [
-  '/', '/index.html', '/style.css', '/app.js', '/db.js', '/seed.js',
-  '/manifest.json', '/icons/icon-192.png', '/icons/icon-512.png',
-  '/pages/dashboard.js', '/pages/records.js', '/pages/form.js',
-  '/pages/categories.js', '/pages/stats.js'
+  './', './index.html', './style.css', './app.js', './db.js', './seed.js',
+  './manifest.json', './icons/icon-192.png', './icons/icon-512.png',
+  './pages/dashboard.js', './pages/records.js', './pages/form.js',
+  './pages/categories.js', './pages/stats.js'
 ];
 
 self.addEventListener('install', e => {

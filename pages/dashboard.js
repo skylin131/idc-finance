@@ -1,5 +1,5 @@
-import { db } from '/db.js';
-import { fmt, showToast } from '/app.js';
+import { db } from '../db.js';
+import { fmt, showToast } from '../app.js';
 
 let year = new Date().getFullYear();
 let month = new Date().getMonth() + 1;

@@ -1,4 +1,4 @@
-import { db } from '/db.js';
+import { db } from './db.js';
 
 // ─── 工具函式 ──────────────────────────────────────────────────────────────────
 
@@ -33,12 +33,12 @@ export function getState() { return _state; }
 // ─── 路由 ──────────────────────────────────────────────────────────────────────
 
 const routes = {
-  '/dashboard': { title: '總覽',    nav: 'dashboard',  load: async c => { const { renderDashboard } = await import('/pages/dashboard.js');  renderDashboard(c); } },
-  '/records':   { title: '收支記錄', nav: 'records',    load: async c => { const { renderRecords }   = await import('/pages/records.js');    renderRecords(c);   } },
-  '/add':       { title: '新增記錄', nav: 'add',        load: async c => { const { renderForm }      = await import('/pages/form.js');       renderForm(c, null); } },
-  '/edit':      { title: '編輯記錄', nav: 'records',    load: async c => { const { renderForm }      = await import('/pages/form.js');       renderForm(c, _state.record); } },
-  '/categories':{ title: '分類管理', nav: 'categories', load: async c => { const { renderCategories }= await import('/pages/categories.js'); renderCategories(c); } },
-  '/stats':     { title: '統計',    nav: 'stats',      load: async c => { const { renderStats }     = await import('/pages/stats.js');      renderStats(c);     } },
+  '/dashboard': { title: '總覽',    nav: 'dashboard',  load: async c => { const { renderDashboard } = await import('./pages/dashboard.js');  renderDashboard(c); } },
+  '/records':   { title: '收支記錄', nav: 'records',    load: async c => { const { renderRecords }   = await import('./pages/records.js');    renderRecords(c);   } },
+  '/add':       { title: '新增記錄', nav: 'add',        load: async c => { const { renderForm }      = await import('./pages/form.js');       renderForm(c, null); } },
+  '/edit':      { title: '編輯記錄', nav: 'records',    load: async c => { const { renderForm }      = await import('./pages/form.js');       renderForm(c, _state.record); } },
+  '/categories':{ title: '分類管理', nav: 'categories', load: async c => { const { renderCategories }= await import('./pages/categories.js'); renderCategories(c); } },
+  '/stats':     { title: '統計',    nav: 'stats',      load: async c => { const { renderStats }     = await import('./pages/stats.js');      renderStats(c);     } },
 };
 
 function handleRoute() {
@@ -102,7 +102,7 @@ async function initSeed() {
 
   try {
     document.getElementById('seed-progress').textContent = '讀取分類資料…';
-    const { SEED_ITEMS, SEED_RECORDS } = await import('/seed.js');
+    const { SEED_ITEMS, SEED_RECORDS } = await import('./seed.js');
     document.getElementById('seed-progress').textContent = `匯入 ${SEED_RECORDS.length} 筆記錄中…`;
     await db.seedAll(SEED_ITEMS, SEED_RECORDS);
     document.getElementById('seed-progress').textContent = '完成！';
@@ -159,7 +159,7 @@ window.addEventListener('hashchange', () => { if (isAuthed()) handleRoute(); });
 
 // Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(console.error);
+  navigator.serviceWorker.register('./sw.js').catch(console.error);
 }
 
 // Startup

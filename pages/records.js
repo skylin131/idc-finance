@@ -1,5 +1,5 @@
-import { db } from '/db.js';
-import { fmt, fmtDate, showToast, navigate } from '/app.js';
+import { db } from '../db.js';
+import { fmt, fmtDate, showToast, navigate } from '../app.js';
 
 const PAGE = 30;
 let filters = { year: new Date().getFullYear(), month: '', type: '' };

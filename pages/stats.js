@@ -1,5 +1,5 @@
-import { db } from '/db.js';
-import { fmt, showToast } from '/app.js';
+import { db } from '../db.js';
+import { fmt, showToast } from '../app.js';
 
 export async function renderStats(container) {
   container.innerHTML = `<div class="stats-page">
